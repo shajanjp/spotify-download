@@ -13,8 +13,9 @@ function formatTrackName(trackName) {
 }
 
 (async () => {
-  for (const song of songs) {
+  for (const [i, song] of songs.entries()) {
     const youtubeResult = await yts(song);
+    console.log(`Downloading ${i+1} of ${songs.length}`);
     console.log({
       url: youtubeResult.videos[0].url,
       title: youtubeResult.videos[0].title,
